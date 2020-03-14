@@ -175,7 +175,7 @@ describe("tallyUpDonations() [STRETCH TASK]", () => {
 });
 
 describe("counterMakerWithLimit() [STRETCH TASK]", () => {
-  const counter = counterMakerWithLimit(3)
+  const counter = counterMakerWithLimit(3);
   it("returns a function", () => {
     expect(isFunction(counter)).to.equal(true);
   });
