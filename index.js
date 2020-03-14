@@ -314,10 +314,9 @@ function getRunnersByTShirtSize(runners, shirtSize) {
  * @returns a number which is the sum of the donations by all runners.
  */
 function tallyUpDonations(runners) {
-    return runners.reduce((runner, sum) =>{
+    return runners.reduce((sum, runner) =>{
         return sum + runner.donation;
     }, 0);
-
 }
 
 /////////////// CLOSURES ///////////////
@@ -336,7 +335,8 @@ function tallyUpDonations(runners) {
  * counter1 uses a closure because it has a function nested inside another function
  *
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?
- *
+ * Counter2 would be preferable when you need the count value to persist throughout an entire codebase. Counter1 might be preferable for quick
+ * counters
  */
 
 // counter1 code
@@ -380,8 +380,12 @@ function counter2() {
 function counterMakerWithLimit(countLimit) {
     let count = 0;
     return function counter() {
-        console.log(count);
-        count++;
+        //below is the original code I had. I wanted to include it to show(and remind myself later) my thought process while solving this question.
+        //When it comes to looping limits(or more precisely mapping values) modulo is almost always the best solution.
+        // count++;
+        // count = count % (countLimit+1);
+        // return count;
+        return count++ % (countLimit + 1);
     }
 }
 
